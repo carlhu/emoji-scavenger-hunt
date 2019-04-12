@@ -25,10 +25,10 @@ import {isIOS} from './utils';
 import {shuffle} from 'lodash';
 import * as tfc from '@tensorflow/tfjs-core';
 
-export const GAME_START_TIME = 20;
-export const GAME_EXTEND_TIME = 10;
+export const GAME_START_TIME = 2000;
+export const GAME_EXTEND_TIME = 100;
 export const GAME_MAX_ITEMS = 10;
-const SPEAKING_DELAY = 2500; // 2.5 seconds
+const SPEAKING_DELAY = 9000; // 2.5 seconds
 const GAME_TIMER_DELAY = 1000; // 1 second
 
 export interface EmojiItem {
@@ -740,19 +740,20 @@ export class Game {
   }
 
   playAudio = (audio: string, loop = false) => {
-    if (loop) {
-      this.audioSources[audio].loop = true;
-    }
-    if (!this.audioIsPlaying(audio)) {
-      this.audioSources[audio].currentTime = 0;
-      let playPromise = this.audioSources[audio].play();
+    // Carl: Comment out the sound.
+    // if (loop) {
+    //   this.audioSources[audio].loop = true;
+    // }
+    // if (!this.audioIsPlaying(audio)) {
+    //   this.audioSources[audio].currentTime = 0;
+    //   let playPromise = this.audioSources[audio].play();
 
-      if (playPromise !== undefined) {
-        playPromise.catch(function(error) {
-          console.log('Error in playAudio: ' + error);
-        });
-      }
-    }
+    //   if (playPromise !== undefined) {
+    //     playPromise.catch(function(error) {
+    //       console.log('Error in playAudio: ' + error);
+    //     });
+    //   }
+    // }
   }
 
   pauseAudio = (audio: string) => {
@@ -921,15 +922,15 @@ export class Game {
   }
 
   speak = (msg: string) => {
-    if (this.topItemGuess) {
-      if ('speechSynthesis' in window) {
-        let msgSpeak = new SpeechSynthesisUtterance();
-        msgSpeak.voice = this.sleuthVoice['activeVoice'];
-        msgSpeak.text = msg;
+    // if (this.topItemGuess) {
+    //   if ('speechSynthesis' in window) {
+    //     let msgSpeak = new SpeechSynthesisUtterance();
+    //     msgSpeak.voice = this.sleuthVoice['activeVoice'];
+    //     msgSpeak.text = msg;
 
-        speechSynthesis.speak(msgSpeak);
-      }
-    }
+    //     speechSynthesis.speak(msgSpeak);
+    //   }
+    // }
   }
 
   handleGameTimerCountdown = () => {
