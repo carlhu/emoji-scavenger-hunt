@@ -23,7 +23,7 @@ import {SCAVENGER_CLASSES} from './scavenger_classes';
 
 type TensorMap = {[name: string]: tfc.Tensor};
 
-const MODEL_FILE_URL = '/model/web_model.pb';
+const MODEL_FILE_URL = '/model/tensorflowjs_model.pb';
 const WEIGHT_MANIFEST_FILE_URL = '/model/weights_manifest.json';
 const INPUT_NODE_NAME = 'input';
 const OUTPUT_NODE_NAME = 'final_result';
@@ -47,7 +47,7 @@ export class MobileNet {
     }
   }
   /**
-   * Infer through SqueezeNet, assumes variables have been loaded. This does
+   * Infer through MobileNet, assumes variables have been loaded. This does
    * standard ImageNet pre-processing before inferring through the model. This
    * method returns named activations as well as softmax logits.
    *
@@ -73,11 +73,9 @@ export class MobileNet {
     for (let i = 0; i < values.length; i++) {
       predictionList.push({value: values[i], index: i});
     }
-    predictionList = predictionList
-                         .sort((a, b) => {
-                           return b.value - a.value;
-                         })
-                         .slice(0, topK);
+    predictionList = predictionList.sort((a, b) => {
+      return b.value - a.value;
+    }).slice(0, topK);
 
     return predictionList.map(x => {
       return {label: SCAVENGER_CLASSES[x.index], value: x.value};

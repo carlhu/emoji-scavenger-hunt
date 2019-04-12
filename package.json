@@ -18,12 +18,18 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.104",
+    "@types/stats.js": "^0.17.0",
     "browserify": "^16.0.0",
     "browserify-shim": "^3.8.14",
     "concurrently": "^3.5.1",
     "lodash": "^4.17.5",
     "mkdirp": "^0.5.1",
+<<<<<<< HEAD
     "node-sass": "^4.11.0",
+=======
+    "node-sass": "^4.7.2",
+    "stats.js": "^0.17.0",
+>>>>>>> a51b63b4679932ec528fd90ffb176391edc8b93b
     "tsify": "^3.0.4",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1",
@@ -31,7 +37,8 @@
     "watchify": "^3.10.0"
   },
   "dependencies": {
-    "@tensorflow/tfjs-converter": "0.1.0",
-    "@tensorflow/tfjs-core": "0.6.0"
+    "@tensorflow/tfjs-converter": "0.2.1",
+    "@tensorflow/tfjs-core": "0.9.0",
+    "babel-polyfill": "^6.26.0"
   }
 }

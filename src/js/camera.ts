@@ -29,17 +29,30 @@ const CSS_CLASSES = {
 
 export const VIDEO_PIXELS = 224;
 
+/** Initializes and manages interaction with the camera */
 export class Camera {
-
+  /** The HTMLVideoElement used to show content from the camera */
   videoElement: HTMLVideoElement;
+  /** A canvas element to save snapshots to */
+  snapShotCanvas: HTMLCanvasElement;
+  /** The native aspect ratio of the video element once initialized */
   aspectRatio: number;
 
   constructor() {
     this.videoElement =
       <HTMLVideoElement>document.querySelector(SELECTORS.CAMERA_ELEMENT);
+    this.snapShotCanvas = document.createElement('canvas');
   }
 
-  setupCamera = async () => {
+  /**
+   * Requests access to the camera and return a Promise with the native width
+   * and height of the video element when resolved.
+   *
+   * @async
+   * @returns {Promise<CameraDimentions>} A promise with the width and height
+   * of the video element used as the camera.
+   */
+  async setupCamera() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       const stream = await navigator.mediaDevices.getUserMedia({
         'audio': false,
@@ -58,7 +71,15 @@ export class Camera {
     return null;
   }
 
-  setupVideoDimensions = (width: number, height: number) => {
+  /**
+   * Adjusts the video element width and height to align with the native
+   * screen aspect ratio while also constraining it to the amount of pixel
+   * we use for our training data.
+   *
+   * @param width The video element native width.
+   * @param height The video element native height.
+   */
+  setupVideoDimensions(width: number, height: number) {
     this.aspectRatio = width / height;
 
     if (width >= height) {
@@ -70,22 +91,43 @@ export class Camera {
     }
   }
 
-  pauseCamera = () => {
+  pauseCamera() {
     if (!game.cameraPaused) {
       this.videoElement.pause();
       game.cameraPaused = true;
     }
   }
 
-  unPauseCamera = () => {
+  unPauseCamera() {
     if (game.cameraPaused) {
       this.videoElement.play();
       game.cameraPaused = false;
     }
   }
 
-  setFrontFacingCamera = () => {
+  /**
+   * Adjusts the camera CSS to flip the display since we are viewing the
+   * camera on a desktop where we want the camera to be mirrored.
+   */
+  setFrontFacingCamera() {
     addClass(this.videoElement, CSS_CLASSES.CAMERA_FRONT_FACING);
+  }
+
+  /**
+   * Takes a snapshot of the camera feed and converts it
+   * to an image via a canvas element.
+   * @returns <HTMLImageElement> The snapshot as an image node.
+   */
+  snapshot() {
+    this.snapShotCanvas.height = this.videoElement.height;
+    this.snapShotCanvas.width = this.videoElement.width;
+    let ctx = this.snapShotCanvas.getContext('2d');
+    ctx.drawImage(this.videoElement, 0, 0, this.snapShotCanvas.width,
+        this.snapShotCanvas.height);
+    let img = new Image();
+    img.src = this.snapShotCanvas.toDataURL('image/png').replace('image/png',
+        'image/octet-stream');
+    return img;
   }
 }
 

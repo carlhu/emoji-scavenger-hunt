@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="lD484N--aDigkknKdhFozMC6Iyhydvzv5reMGNpgleI" />
+    <link rel="canonical" href="https://emojiscavengerhunt.withgoogle.com/">
     <title>Emoji Scavenger Hunt</title>
     <meta name="description" content="Use your phone’s camera to identify emojis in the real world. Can you find all the emojis before time expires?" />
 
@@ -70,6 +71,16 @@
           </p>
           <p>This experiment was made by friends from the Brand Studio and PAIR teams at Google.</p>
 
+          <p class="views__heading  view__about__heading">Faq 🙋</p>
+          <p><strong>- It doesn’t work on my phone.</strong></p>
+          <p>Being an experiment and all, we're using the latest web technologies. It works best on phones & browsers like the latest version of Chrome on Google Pixel or other smartphones running the latest Android OS, or Safari on newer iPhones running the latest iOS.</p>
+
+          <p><strong>- Why doesn’t it recognize some items?</strong></p>
+          <p>It’s an experiment, and well, not perfect. We think seeing what works and what doesn’t is one way to help explore and understand how machine learning works.</p>
+
+          <p><strong>- Are my images being stored on Google servers?</strong></p>
+          <p>No. All the interactions are happening locally on your device. If you’re curious, check out our <a href="https://github.com/google/emoji-scavenger-hunt/" target="_blank">open-source code on GitHub</a></p>
+
           <p class="views__heading  view__about__heading">Contact ✉️</p>
           <p><a href="mailto:emojiscavengerhunt@google.com">Email us</a> or <a href="https://services.google.com/fh/files/misc/emojiscavengerhunt-presskit.zip">download the press kit</a></p>
 
@@ -93,7 +104,7 @@
         </div>
         <div class="view__info-bar">
           <button class="view__info-bar__about-btn view__info-bar__about-btn--js">
-            <img src="/img/emojis/ui/questionmark.svg" alt="About icon">
+            <img src="/img/emojis/ui/info.svg" alt="About icon">
           </button>
         </div>
         <h1>
@@ -102,6 +113,9 @@
           A neural network will try to guess what it’s seeing.<br />Make sure your sound is on.</p>
         <button class="btn play-btn landing__play-btn--js">Let's Play</button>
         <p class="view__landing__desktop-msg view__landing__desktop-msg--js">Emoji Scavenger Hunt is best experienced on phones.</p>
+        <p class="view__landing__age-msg view__landing__age-msg--js">By pressing the button above, I certify that I am over 13 years old.<br>
+          <a class="view__landing__age-msg__privacy-link" href="https://www.google.com/policies/" target="_blank">Privacy & Terms</a>
+        </p>
         <div class="view__landing__platform-msg view__landing__platform-msg--js">
           <div class="view__landing__video-container">
             <iframe src="https://www.youtube.com/embed/jr3q_9pJBr8?rel=0&amp;showinfo=0&amp;controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -111,7 +125,13 @@
         <a href="https://experiments.withgoogle.com/ai" target="_blank">
           <img class="view__landing__ai-badge" src="img/badge.svg" alt="Made with some friends at Google">
         </a>
-        <a class="view__landing__privacy-link" href="https://www.google.com/policies/" target="_blank">Privacy & Terms</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="#fff" class="view__landing__lang-selector-icon">
+          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+        </svg>
+        <select class="view__landing__lang-selector">
+          <option value="/" selected>English</option>
+          <option value="/ja/">日本語</option>
+        </select>
       </div>
 
       <div class="view__countdown view__countdown--js">
@@ -145,11 +165,12 @@
             <img src="/img/emojis/ui/house.svg" alt="Home icon">
           </button>
           <button class="view__info-bar__about-btn view__info-bar__about-btn--js">
-            <img src="/img/emojis/ui/questionmark.svg" alt="About icon">
+            <img src="/img/emojis/ui/info.svg" alt="About icon">
           </button>
         </div>
         <p class="views__heading  view__found-x-items__heading">You found <span class="view__found-x-items__nr-found--js"></span></p>
         <div class="view__found-x-items__emojis view__found-x-items__emojis--js"></div>
+        <p class="view__found-x-items__disclaimer">Your photos are not being saved and will remain local on your device.</p>
         <div class="view__found-x-items__social">
           <p>Share your score</p>
           <div class="view__found-x-items__social-icons">
@@ -170,12 +191,13 @@
             <img src="/img/emojis/ui/house.svg" alt="Home icon">
           </button>
           <button class="view__info-bar__about-btn view__info-bar__about-btn--js">
-            <img src="/img/emojis/ui/questionmark.svg" alt="About icon">
+            <img src="/img/emojis/ui/info.svg" alt="About icon">
           </button>
         </div>
         <p class="views__heading  view__found-all-items__heading">You found <span class="view__found-all-items__nr-found--js"></span></p>
         <p>Congratulations! You are a master emoji identifier.</p>
         <div class="view__found-all-items__emojis view__found-all-items__emojis--js"></div>
+        <p class="view__found-all-items__disclaimer">Your photos are not being saved and will remain local on your device.</p>
         <div class="view__found-all-items__social">
           <p>Share your score</p>
           <div class="view__found-all-items__social-icons">
@@ -196,7 +218,7 @@
             <img src="/img/emojis/ui/house.svg" alt="Home icon">
           </button>
           <button class="view__info-bar__about-btn view__info-bar__about-btn--js">
-            <img src="/img/emojis/ui/questionmark.svg" alt="About icon">
+            <img src="/img/emojis/ui/info.svg" alt="About icon">
           </button>
         </div>
         <img class="view__found-no-items__emoji" src="/img/emojis/ui/thumbsdown.svg"/>
@@ -212,7 +234,10 @@
           <img class="view__status-bar__info__emoji" src="/img/emojis/ui/trophy.svg" />
           <span class="view__status-bar__info__score view__status-bar__info__score--js">0</span>
           <img class="view__status-bar__info__emoji" src="/img/emojis/ui/stopwatch.svg" />
-          <span class="view__status-bar__info__timer view__status-bar__info__timer--js"></span>
+          <div class="view__status-bar__info__timer-container">
+            <span class="view__status-bar__info__timer view__status-bar__info__timer--js"></span>
+            <span class="view__status-bar__info__timer-flash view__status-bar__info__timer-flash--js"></span>
+          </div>
         </div>
       </div>
 
@@ -225,6 +250,8 @@
       <div class="view__camera view__camera--js">
         <button class="view__camera__quit-btn view__camera__quit-btn--js">Quit</button>
         <div class="view__camera__prediction-results view__camera__prediction-results--js"></div>
+        <div class="view__camera__fps view__camera__fps--js"></div>
+        <p class="view__camera__desktop-msg view__camera__desktop-msg--js">This game is best experienced on phones</p>
         <div class="camera__capture-wrapper camera__capture-wrapper--js">
           <div class="camera__capture-flash camera__capture-flash--js"></div>
           <video class="camera__element camera__element--js" autoplay playsinline></video>
@@ -243,4 +270,3 @@
     </script>
   </body>
 </html>
-
